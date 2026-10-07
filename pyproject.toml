@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "inboxili"
+version = "0.1.0"
+description = "Python client for the Inboxili transactional email API"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+dependencies = []
+keywords = ["email", "transactional-email", "inboxili", "email-api"]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://inboxili.com/integrations/python"
+Repository = "https://github.com/inboxili/inboxili-python"
+Issues = "https://github.com/inboxili/inboxili-python/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+inboxili = ["py.typed"]
