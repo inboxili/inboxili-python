@@ -57,6 +57,11 @@ class ClientTests(unittest.TestCase):
             body, {"to": "a@b.co", "from_email": "hi@x.co", "subject": "S", "html_body": "<p>{{n}}</p>", "template_data": {"n": 1}}
         )
 
+    def test_queued_202_is_success_with_queue_id(self):
+        Stub.responses = [(202, {"status": "queued", "message_id": None, "queue_id": "q-1"})]
+        out = self.client().emails.send(to="a@b.co", from_email="x@y.co", subject="s", html_body="x")
+        self.assertEqual((out.status, out.message_id, out.queue_id), ("queued", None, "q-1"))
+
     def test_validation_happens_before_request(self):
         c = self.client()
         with self.assertRaises(ValueError):

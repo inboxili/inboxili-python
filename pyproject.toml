@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "inboxili"
-version = "0.1.0"
+version = "0.1.1"
 description = "Python client for the Inboxili transactional email API"
 readme = "README.md"
 license = { text = "MIT" }

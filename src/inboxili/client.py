@@ -49,7 +49,7 @@ class Emails:
             "template_data": template_data,
         }
         body = self._client._post("/transactional/send", {k: v for k, v in payload.items() if v is not None})
-        return SendEmailResponse(status=str(body.get("status")), message_id=body.get("message_id"))
+        return SendEmailResponse(status=str(body.get("status")), message_id=body.get("message_id"), queue_id=body.get("queue_id"))
 
 
 class Inboxili:
